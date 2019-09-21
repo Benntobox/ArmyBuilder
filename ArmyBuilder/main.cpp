@@ -16,15 +16,46 @@ class Equipment {
     int stats[8];
 };
 
-class Unit {
+class Model {
+private:
     int stats[8];
+    Equipment equipment;
+public:
+    void set_stats(int numbers[]) { for(int i=0;i<8;i++) { stats[i] = numbers[i]; } };
+    void set_equip(string eq) {  }
+};
+
+class Unit {
+    Model models;
 };
 
 class HQ : Unit {
-    Equipment weapon;
+    vector<Model> unit;
+    string abilities;
+};
+
+class Troops : Unit {
+    vector<Model> unit;
+    string abilities;
+};
+
+class Elites : Unit {
+    vector<Model> unit;
+    string abilities;
+};
+
+class FastAttack : Unit {
+    vector<Model> unit;
+    string abilities;
+};
+
+class HeavySupport : Unit {
+    vector<Model> unit;
+    string abilities;
 };
 
 class Detachment {
+    vector<HQ> HeadQuarters;
     Unit unit1;
 };
 
@@ -32,31 +63,7 @@ class Army {
     Detachment det1;
 };
 
-int matcher(int n, vector<int> ar) {
-    int total = 0;
-    std::sort(ar.begin(), ar.begin()+n);
-    
-    for(int i=0; i<n; i++) {
-        cout << ar[i] << " ";
-    }
-    
-    for (int i = 0; i < n-1; i++) {
-        if (ar[i] == ar[i+1]) {
-            total++;
-            i++;
-        }
-    }
-    
-    return total;
-}
-
-
 int main(int argc, const char * argv[]) {
-    int n=9;
-    vector<int> ar = { 4, 2, 1, 3, 1, 2, 1, 2, 3 };
-    
-    int result = matcher(n, ar);
-    cout << result;
     
     return 0;
 }
