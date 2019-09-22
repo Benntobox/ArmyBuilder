@@ -27,6 +27,7 @@ public:
 
 class Unit {
     vector<Model> unit;
+    string type;
     string description;
 public:
     Unit() { description = "";}
@@ -34,30 +35,6 @@ public:
     string print_unit() { return description; }
 };
 
-class HQ : Unit {
-    vector<Model> unit;
-    string abilities;
-};
-
-class Troops : Unit {
-    vector<Model> unit;
-    string abilities;
-};
-
-class Elites : Unit {
-    vector<Model> unit;
-    string abilities;
-};
-
-class FastAttack : Unit {
-    vector<Model> unit;
-    string abilities;
-};
-
-class HeavySupport : Unit {
-    vector<Model> unit;
-    string abilities;
-};
 
 class Detachment {
     vector<Unit> units;
